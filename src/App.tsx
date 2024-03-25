@@ -1,33 +1,36 @@
-// import { useState } from 'react'
-import { useState } from 'react';
-import './App.css'
-import { Button } from '@/components/ui'
-import { AlertDialogDemo } from '@/shared';
+import { useState } from "react";
+import "./App.css";
+import { Button } from "@/components/ui";
+// import CounterDemo from "@/shared/counter-demo";
+import { AlertDialogDemo } from "@/shared";
 
 function App() {
-  // const [count, setCount] = useState(0)
-
-  // function increase() {
-  //   setCount(count + 1);
-  // }
-
-  // function decrease() {
-  //   setCount(count - 1)
-  // }
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   const openChange = () => {
-    setOpen(true);
-  }
+    setOpen((open) => !open);
+    // console.log("father", open);
+  };
+
+  // const [count, setCount] = useState(0);
+
+  // const increase = () => {
+  //   setCount(count + 1);
+  // };
+
+  // const decrease = () => {
+  //   setCount(count - 1);
+  // };
+
   return (
     <>
-      <Button onClick={openChange} variant={'destructive'}>测试</Button>
-      {/* <Button variant={'destructive'} onClick={() => decrease()}>-</Button>
-      <div className='tw-bg-orange-500 tw-text-white tw-h-6 tw-px-4 tw-mx-2 tw-inline-block'>{count}</div>
-      <Button variant={'destructive'} onClick={() => increase()}>+</Button> */}
-      <AlertDialogDemo open={open}></AlertDialogDemo>
+      <Button onClick={openChange} variant={"destructive"}>
+        测试
+      </Button>
+      <AlertDialogDemo open={open} openChange={openChange}></AlertDialogDemo>
+      {/* <CounterDemo count={count} increase={increase} decrease={decrease} /> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
